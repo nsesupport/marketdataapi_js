@@ -14,7 +14,7 @@
         <br />
         <hr />
         <p ng-show="connecting==true">Connecting to server...</p>
-        <h1 ng-show="quote != null">Quote: #{{quote.Price}} @{{quote.LastTradeTime}}</h1>
+        <h1 ng-show="quote != null">Quote: #{{quote.Last}} @{{quote.LastTradeTime}}</h1>
     </div>
 
     <script>
@@ -28,7 +28,7 @@
             $scope.fetch = function () {
                 $scope.quote = null;
                 $scope.connecting = true;
-                var url = "http://marketdataapi.nse.com.ng/v1/odata/StockQuote('" + $scope.symbol + "')?_token=60832_your_token_539b";
+                var url = "http://marketdataapi.nse.com.ng/v1/odata/RealTimeQuote('" + $scope.symbol + "')?_token=60832_your_token_539b";
                 $http.get(url)
             .then(function (response) {
                 $scope.quote = response.data;
